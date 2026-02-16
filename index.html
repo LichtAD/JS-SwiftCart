@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,162 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- font -->
-
     <!-- link css -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>hello</h1>
+    <!-- navbar start -->
+    <div class="navbar bg-base-100 max-w-7xl mx-auto">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a>Item 1</a></li>
+                    <li>
+                        <a>Parent</a>
+                        <ul class="p-2">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Item 3</a></li>
+                </ul>
+            </div>
+            <a class="text-lg font-bold text-indigo-600">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><button>Home</button></li>
+                <li><button>Products</button></li>
+                <li><button>About</button></li>
+                <li><button>Contact</button></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </div>
+    <!-- navbar end -->
+
+    <!-- banner start -->
+    <section>
+        <div
+            class="bg-[url(./assets/banner-image.png)] bg-center bg-no-repeat bg-cover bg-black/60 bg-blend-overlay text-white py-[200px] pl-80 space-y-5">
+            <h1 class="text-5xl font-bold">Best Collection For You</h1>
+            <p class="text-lg w-1/3">Discover the latest trends in fashion, electronics, and more. Shop with
+                confidence and style at SwiftCart.</p>
+            <button class="btn btn-primary">Shop Now</button>
+
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- why choose us start -->
+    <section class="mb-20 pt-20 pb-10 bg-gray-200">
+        <div class="space-y-3 mb-20">
+            <h1 class="text-3xl font-bold text-center">Why Choose Us</h1>
+            <p class="text-center text-gray-500">We provide the best shopping experience with top-notch services.</p>
+        </div>
+
+        <div class="grid grid-cols-4 px-80 gap-5">
+            <div class="bg-white relative rounded-lg pt-12 p-8">
+                <span><i
+                        class="fa-solid fa-truck text-4xl text-indigo-600 bg-gray-200 p-2 border-2 border-white shadow-sm rounded-md absolute -top-7 left-5"></i></span>
+                <h1 class="font-semibold mb-3">Fast Delivery</h1>
+                <p>Get your orders delivered to your doorstep quickly and efficiently.</p>
+            </div>
+
+            <div class="bg-white relative rounded-lg pt-12 p-8">
+                <span><i
+                        class="fa-solid fa-headphones text-4xl text-indigo-600 bg-gray-200 p-2 border-2 border-white shadow-sm rounded-md absolute -top-7 left-5"></i></span>
+                <h1 class="font-semibold mb-3">24/7 Support</h1>
+                <p>Our support team is available around the clock to assist you.</p>
+            </div>
+
+            <div class="bg-white relative rounded-lg pt-12 p-8">
+                <span><i
+                        class="fa-solid fa-shield-halved text-4xl text-indigo-600 bg-gray-200 p-2 border-2 border-white shadow-sm rounded-md absolute -top-7 left-5"></i></span>
+                <h1 class="font-semibold mb-3">Secure Payment</h1>
+                <p>Experience safe and secure transactions with our encrypted payment systems.</p>
+            </div>
+
+            <div class="bg-white relative rounded-lg pt-12 p-8">
+                <span><i
+                        class="fa-solid fa-arrows-spin text-4xl text-indigo-600 bg-gray-200 p-2 border-2 border-white shadow-sm rounded-md absolute -top-7 left-5"></i></span>
+                <h1 class="font-semibold mb-3">Easy Returns</h1>
+                <p>Not satisfied? Return your products easily within 30 days.</p>
+            </div>
+
+        </div>
+    </section>
+    <!-- why choose us end -->
+
+    <!-- tranding products start -->
+    <section class="mb-20">
+        <h1 class="text-3xl font-bold mb-10 max-w-7xl mx-auto">Trending Now</h1>
+    </section>
+    <!-- tranding products end -->
+
+    <!-- footer -->
+    <div class="px-80 pt-10 pb-2 bg-black/80 text-white text-base-content">
+        <div class="grid grid-cols-4 footer sm:footer-horizontal mb-6">
+            <nav class="space-y-2">
+                <h1 class="text-3xl font-bold text-indigo-500">SwiftCart</h1>
+                <p>Your one-stop shop for all your fashion and lifestyle needs. Quality products, fast delivery, and
+                    excellent support.</p>
+            </nav>
+            <nav class="ml-20">
+                <h6 class="footer-title">Services</h6>
+                <a class="link link-hover">Branding</a>
+                <a class="link link-hover">Design</a>
+                <a class="link link-hover">Marketing</a>
+                <a class="link link-hover">Advertisement</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Company</h6>
+                <a class="link link-hover">About us</a>
+                <a class="link link-hover">Contact</a>
+                <a class="link link-hover">Jobs</a>
+                <a class="link link-hover">Press kit</a>
+            </nav>
+            <form>
+                <h6 class="footer-title">SUBSCRIBE TO OUR NEWSLETTER</h6>
+                <fieldset class="w-80">
+                    <label class="mb-4">The latest news, articles, and resources, sent to your inbox weekly.</label>
+                    <div class="join mt-4 flex gap-4">
+                        <input type="text" placeholder="Enter your email"
+                            class="input input-bordered join-item text-black rounded-lg" />
+                        <button class="btn btn-primary join-item rounded-lg">Subscribe</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="border-t-1 border-gray-500">
+            <div class="footer sm:footer-horizontal items-center p-4">
+                <aside class="grid-flow-col items-center">
+                    <p>© 2025 SwiftCart, Inc. All rights reserved.</p>
+                </aside>
+                <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+                    <div><i class="fa-brands fa-facebook-f"></i></div>
+                    <div><i class="fa-brands fa-twitter"></i></div>
+                    <div><i class="fa-brands fa-instagram"></i></div>
+                    <div><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div><i class="fa-regular fa-envelope"></i></div>
+                </nav>
+            </div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>
+
 </html>
