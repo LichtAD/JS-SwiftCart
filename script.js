@@ -66,7 +66,7 @@ const loadAllProducts = () => {
         })
 }
 
-// ! display all products by default
+// ! display products
 const displayProducts = (products) => {
 
     const productsContainer = document.getElementById("products_container");
@@ -139,3 +139,59 @@ const loadProductsByCategory = (cat_name) => {
         })
 }
 
+// ! load tranding products
+const loadTrandingProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((json) => {
+            // console.log(json);
+            displayTrandingProducts(json);
+        })
+}
+
+loadTrandingProducts();
+
+// ! display tranding products
+const displayTrandingProducts = (products) => {
+    const trandingProductsContainer = document.getElementById("tranding_products_container");
+    trandingProductsContainer.innerHTML = "";
+
+    first_3_Products = products.slice(0, 3);
+
+    first_3_Products.forEach(product => {
+        // console.log(product);    
+
+        const productDiv = document.createElement("div");    
+        productDiv.innerHTML = `
+            <div class="card bg-base-100 shadow-sm">    
+                <figure class="h-80">    
+                    <img src="${product.image}" class="bg-gray-200 object-contain w-full h-full" alt="" />    
+                </figure>    
+                <div class="card-body">    
+                    <div class="flex justify-between items-center">    
+                        <div class="badge bg-indigo-500/30 text-indigo-500 py-3 font-semibold">${product.category}</div>    
+                        <div class="flex justify-center items-center gap-1">    
+                            <div class="rating">    
+                                <div class="mask mask-star-2 bg-yellow-400" aria-current="true"></div>                        
+                            </div>    
+                            <span class="text-sm">${product.rating.rate}</span>    
+                            <span class="text-sm">(${product.rating.count})</span>    
+                        </div>    
+                    </div>    
+                    <h2 class="card-title">    
+                        <span class="truncate text-ellipsis">    
+                            ${product.title}    
+                        </span>    
+                    </h2>    
+                    <p class="font-semibold text-2xl mb-2">$${product.price}</p>    
+                    <div class="flex justify-between items-center gap-3">    
+                        <button class="btn btn-outline w-full flex-1 rounded-lg"><i class="fa-solid fa-eye"></i> Details</button>    
+                        <button class="btn btn-primary w-full flex-1 rounded-lg"><i class="fa-solid fa-cart-shopping"></i> Add</button>    
+                    </div>    
+                </div>    
+            </div>    
+        `;
+
+        trandingProductsContainer.appendChild(productDiv);
+    });
+}
