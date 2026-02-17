@@ -18,7 +18,7 @@
 </head>
 
 <body class="">
-    <!-- navbar start -->
+    <!-- ! navbar start -->
     <div class="navbar bg-base-100 max-w-7xl mx-auto">
         <div class="navbar-start">
             <div class="dropdown">
@@ -31,15 +31,10 @@
                 </div>
                 <ul tabindex="-1"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <a>Parent</a>
-                        <ul class="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Item 3</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="" class="text-indigo-600">Products</a></li>
+                    <li><button>About</button></li>
+                    <li><button>Contact</button></li>
                 </ul>
             </div>
             <a class="text-lg font-bold text-indigo-600">SwiftCart</a>
@@ -58,7 +53,7 @@
     </div>
     <!-- navbar end -->
 
-    <!-- category start -->
+    <!-- ! category start -->
     <section class="min-h-screen max-w-7xl mx-auto">
         <h1 class="text-3xl font-bold text-center mb-6">Our Products</h1>
 
@@ -67,7 +62,7 @@
         </div>
 
 
-
+        <!-- ! loader -->
         <section id="loader" class="hidden pb-10">
             <div class="flex justify-center items-center">
                 <span class="loading loading-spinner text-primary"></span>
@@ -75,18 +70,16 @@
         </section>
 
 
-
-        <div id="products_container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
-
-            <!-- card start -->
-
-            <!-- card end -->
-
+        <!-- ! products start -->
+        <div id="products_container" class="grid grid-cols-1 lg:grid-cols-4 px-10 lg:px-0 gap-5 mb-20">
+            <!-- card -->
         </div>
+        <!-- products end -->
+
     </section>
     <!-- category end -->
 
-    <!-- modal start -->
+    <!-- ! modal start -->
     <dialog id="category_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
 
@@ -99,23 +92,24 @@
             <div class="mt-0">
                 <form method="dialog" class="w-2/3 flex justify-between items-center gap-3 mt-5">
                     <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-outline w-full flex-1 rounded-lg">Buy Now</button>    
-                        <button class="btn btn-primary w-full flex-1 rounded-lg"><i class="fa-solid fa-cart-shopping"></i> Add To Cart</button> 
+                    <button class="btn btn-outline w-full flex-1 rounded-lg">Buy Now</button>
+                    <button class="btn btn-primary w-full flex-1 rounded-lg"><i class="fa-solid fa-cart-shopping"></i>
+                        Add To Cart</button>
                 </form>
             </div>
         </div>
     </dialog>
     <!-- modal end -->
 
-    <!-- footer -->
-    <div class="px-80 pt-10 pb-2 bg-black/80 text-white text-base-content">
-        <div class="grid grid-cols-4 footer sm:footer-horizontal mb-6">
+    <!-- ! footer -->
+    <div class="lg:px-80 px-10 pt-10 pb-2 bg-black/80 text-white text-base-content">
+        <div class="grid grid-cols-1 lg:grid-cols-4 footer sm:footer-horizontal mb-6">
             <nav class="space-y-2">
                 <h1 class="text-3xl font-bold text-indigo-500">SwiftCart</h1>
                 <p>Your one-stop shop for all your fashion and lifestyle needs. Quality products, fast delivery, and
                     excellent support.</p>
             </nav>
-            <nav class="ml-20">
+            <nav class="lg:ml-20">
                 <h6 class="footer-title">Services</h6>
                 <a class="link link-hover">Branding</a>
                 <a class="link link-hover">Design</a>
