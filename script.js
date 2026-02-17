@@ -55,7 +55,7 @@ const displayCategories = (categories) => {
 const loadAllProducts = () => {
     removeActiveClassFromAllBtn();
     document.getElementById("category_btn_id_all").classList.add("btn-active");
-    
+
     manageLoader(true);
 
     fetch("https://fakestoreapi.com/products")
@@ -99,7 +99,7 @@ const displayProducts = (products) => {
                     </h2>
                     <p class="font-semibold text-2xl mb-2">$${product.price}</p>
                     <div class="flex justify-between items-center gap-3">
-                        <button class="btn btn-outline w-full flex-1 rounded-lg"><i class="fa-solid fa-eye"></i>
+                        <button onclick="loadProductDetails_modal(${product.id})" class="btn btn-outline w-full flex-1 rounded-lg"><i class="fa-solid fa-eye"></i>
                             Details</button>
                         <button class="btn btn-primary w-full flex-1 rounded-lg"><i
                                 class="fa-solid fa-cart-shopping"></i> Add</button>
@@ -161,7 +161,7 @@ const displayTrandingProducts = (products) => {
     first_3_Products.forEach(product => {
         // console.log(product);    
 
-        const productDiv = document.createElement("div");    
+        const productDiv = document.createElement("div");
         productDiv.innerHTML = `
             <div class="card bg-base-100 shadow-sm">    
                 <figure class="h-80">    
@@ -185,7 +185,7 @@ const displayTrandingProducts = (products) => {
                     </h2>    
                     <p class="font-semibold text-2xl mb-2">$${product.price}</p>    
                     <div class="flex justify-between items-center gap-3">    
-                        <button class="btn btn-outline w-full flex-1 rounded-lg"><i class="fa-solid fa-eye"></i> Details</button>    
+                        <button onclick="loadProductDetails_modal(${product.id})" class="btn btn-outline w-full flex-1 rounded-lg"><i class="fa-solid fa-eye"></i> Details</button>
                         <button class="btn btn-primary w-full flex-1 rounded-lg"><i class="fa-solid fa-cart-shopping"></i> Add</button>    
                     </div>    
                 </div>    
@@ -194,4 +194,55 @@ const displayTrandingProducts = (products) => {
 
         trandingProductsContainer.appendChild(productDiv);
     });
+}
+
+
+// ! load details modal
+const loadProductDetails_modal = async (product_id) => {
+    // console.log(product_id); 
+    const url = `https://fakestoreapi.com/products/${product_id}`;
+    const res = await fetch(url);
+    const details = await res.json();
+    // console.log(details);
+
+    displayProductDetails_modal(details);
+}
+
+// ! display details modal
+const displayProductDetails_modal = (product) => {
+    const modalContainer = document.getElementById("modal_details_container");
+    modalContainer.innerHTML = `
+        <div class="flex flex-col justify-center items-start gap-3">
+            
+            <img src="${product.image}" class="bg-gray-200 object-contain w-full h-64" alt="" />
+
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">${product.title}</h1>
+            
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1 text-yellow-500">
+                    <i class="fa-solid fa-star"></i>
+                    <span class="font-semibold">${product.rating.rate}</span>
+                </span>
+                <span class="text-sm text-gray-500">
+                    (${product.rating.count} reviews)
+                </span>
+            </div>
+
+
+            <span class="inline-block bg-indigo-50 text-indigo-600 text-sm font-medium px-3 py-1 rounded-full">
+                ${product.category}
+            </span>
+
+            <p class="text-lg">${product.description}</p>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                <p class="text-2xl md:text-3xl font-bold text-indigo-600">
+                    Price: $${product.price}
+                </p>
+            </div>
+        </div>
+    `;
+
+    const modal = document.getElementById("category_modal");
+    modal.showModal();
 }
